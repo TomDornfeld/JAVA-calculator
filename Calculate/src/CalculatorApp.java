@@ -4,6 +4,8 @@ import java.awt.event.*;
 
 public class CalculatorApp implements ActionListener {
 
+	Calculator myCalculator;
+	
 	JFrame frame;
 	JTextField textfield;
 	JButton[] numberButtons = new JButton[10];
@@ -19,6 +21,8 @@ public class CalculatorApp implements ActionListener {
 
 	CalculatorApp() {
 
+		myCalculator = new Calculator();
+		
 		frame = new JFrame("Calculator");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(420, 550);
@@ -139,7 +143,7 @@ public class CalculatorApp implements ActionListener {
 
 			switch (operator) {
 			case '+':
-				result = num1 + num2;
+				result = myCalculator.add(num1, num2);
 				break;
 			case '-':
 				result = num1 - num2;
