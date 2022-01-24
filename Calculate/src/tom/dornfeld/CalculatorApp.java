@@ -186,6 +186,5 @@ public class CalculatorApp implements ActionListener {
 			temp*=-1;
 			textfield.setText(String.valueOf(temp));
 		}
-		
 	}
 }
