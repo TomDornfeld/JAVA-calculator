@@ -16,4 +16,8 @@ public class Calculator {
 	public double div(double Num1, double Num2) {
 		return Num1/ Num2;
 	}
+	
+	public double neg(double Num1, double Num2) {
+		return -Num1;
+	}
 }

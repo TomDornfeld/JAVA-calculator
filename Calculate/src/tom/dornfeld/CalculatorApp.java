@@ -158,7 +158,7 @@ public class CalculatorApp implements ActionListener {
 				result = myCalculator.add(num1, num2);
 				break;
 			case '-':
-				result = num1 - num2;
+				result = num1 - num2;			
 				break;
 			case '*':
 				result = num1 * num2;
@@ -168,7 +168,7 @@ public class CalculatorApp implements ActionListener {
 				break;
 			}
 			textfield.setText(String.valueOf(result));
-			num1 = result;
+		num1 = result;
 		}
 		if (e.getSource() == clrButton) {
 			textfield.setText("");
@@ -181,7 +181,7 @@ public class CalculatorApp implements ActionListener {
 			}
 		}
 		
-		if (e.getSource() == negButton) {
+		if (e.getSource() == negButton && !textfield.getText().isEmpty()) {
 			double temp = Double.parseDouble(textfield.getText());
 			temp*=-1;
 			textfield.setText(String.valueOf(temp));
