@@ -50,6 +50,12 @@ public class Calculator {
 	
 	public double equals() {
 		
+		return calculate();
+	}
+
+	
+	protected double calculate() {
+		
 		double result = 0.0; 
 		
 		switch (operator) {
