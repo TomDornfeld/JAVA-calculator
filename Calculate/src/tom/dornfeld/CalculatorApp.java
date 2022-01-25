@@ -149,7 +149,7 @@ public class CalculatorApp implements ActionListener {
 
 		if (e.getSource() == equButton) {					
 			myCalculator.operand2(Double.parseDouble(textfield.getText()));
-			textfield.setText(String.valueOf(myCalculator.result()));
+			textfield.setText(String.valueOf(myCalculator.equals()));
 		}
 
 		if (e.getSource() == clrButton) {
