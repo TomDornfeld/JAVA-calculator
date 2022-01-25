@@ -43,7 +43,7 @@ public class CalculatorTest {
 		calculator.operator('+');
 		calculator.operand2(1.5);
 		
-		assertEquals(4.5, calculator.result(), 0.00001);
+		assertEquals(4.5, calculator.equals(), 0.00001);
 	}
 
 	@Test public void testMultipleAdd() {
@@ -53,7 +53,7 @@ public class CalculatorTest {
 		calculator.operator('+');
 		calculator.operand2(2);
 		
-		assertEquals(6.5, calculator.result(), 0.00001);
+		assertEquals(6.5, calculator.equals(), 0.00001);
 	}
 
 }

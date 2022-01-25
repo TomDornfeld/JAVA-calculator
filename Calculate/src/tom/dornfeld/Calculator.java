@@ -53,7 +53,7 @@ public class Calculator {
 //	public void div() {
 //	}
 	
-	public double result() {
+	public double equals() {
 		
 		double result = 0.0; 
 		
