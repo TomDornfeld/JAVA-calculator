@@ -70,6 +70,10 @@ public class Calculator {
 		case '/':
 			result = div(operand1, operand2);
 			break;
+			
+//			if (operand1 && operand 2 ) {
+//				operant3 ?
+//			}
 		}
 
 		this.operand1 = result;
