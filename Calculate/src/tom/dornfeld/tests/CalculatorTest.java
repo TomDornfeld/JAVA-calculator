@@ -46,14 +46,22 @@ public class CalculatorTest {
 		assertEquals(4.5, calculator.equals(), 0.00001);
 	}
 
-	@Test public void testMultipleAdd() {
+//	@Test public void testMultipleAdd() {
+//		calculator.operand1(3);
+//		calculator.operator('+');
+//		calculator.operand2(1.5);
+//		calculator.operator('+');
+//		calculator.operand2(2);
+//		
+//		assertEquals(6.5, calculator.equals(), 0.00001);
+//	}
+	
+	@Test public void testSinglemul() {
 		calculator.operand1(3);
-		calculator.operator('+');
+		calculator.operator('*');
 		calculator.operand2(1.5);
-		calculator.operator('+');
-		calculator.operand2(2);
 		
-		assertEquals(6.5, calculator.equals(), 0.00001);
+		assertEquals(4.5, calculator.equals(), 0.00001);
 	}
 
 }

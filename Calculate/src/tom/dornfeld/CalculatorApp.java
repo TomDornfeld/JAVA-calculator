@@ -127,6 +127,7 @@ public class CalculatorApp implements ActionListener {
 			myCalculator.operand1(Double.parseDouble(textfield.getText()));
 			myCalculator.operator('+');
 			textfield.setText("");
+			OpschonB = true;
 		}
 
 		if (e.getSource() == subButton) {
@@ -154,6 +155,7 @@ public class CalculatorApp implements ActionListener {
 
 		if (e.getSource() == clrButton) {
 			textfield.setText("");
+			OpschonB = false;
 		}
 		
 		if (e.getSource() == delButton) {

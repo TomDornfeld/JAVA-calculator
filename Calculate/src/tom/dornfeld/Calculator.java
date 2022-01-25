@@ -5,6 +5,7 @@ public class Calculator {
 	double operand1;
 	double operand2;
 	char operator;
+	boolean OpschonB;
 	
 	
 	public double add(double Num1, double Num2) {
@@ -39,19 +40,13 @@ public class Calculator {
 
 	public void operator(char op) {
 		this.operator = op;
+		
+		
+		if (OpschonB == true) {
+			operand1 = operand2;
+		}
+		
 	}
-
-	//	public void add() {
-//	}
-//	
-//	public void sub() {
-//	}
-//	
-//	public void mul() {
-//	}
-//	
-//	public void div() {
-//	}
 	
 	public double equals() {
 		
@@ -70,10 +65,6 @@ public class Calculator {
 		case '/':
 			result = div(operand1, operand2);
 			break;
-			
-//			if (operand1 && operand 2 ) {
-//				operant3 ?
-//			}
 		}
 
 		this.operand1 = result;
