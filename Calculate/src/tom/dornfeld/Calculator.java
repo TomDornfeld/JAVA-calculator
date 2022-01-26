@@ -33,19 +33,22 @@ public class Calculator {
 		this.operand1 = num;
 	}
 	
-	public void operand2(double num) {	
+	public void operand2(double num) {	  
 		this.operand2 = num;		
 	}
 	
 
 	public void operator(char op) {
-		this.operator = op;
-		
+		OpschonB = true;
 		
 		if (OpschonB == true) {
-			operand1 = operand2;
+			operand1 = calculate();
+			operand1 += operand2;
 		}
 		
+		OpschonB = false;
+		
+		this.operator = op;
 	}
 	
 	public double equals() {
