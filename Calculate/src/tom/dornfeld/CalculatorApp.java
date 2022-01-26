@@ -124,31 +124,31 @@ public class CalculatorApp implements ActionListener {
 		}
 
 		if (e.getSource() == addButton) {
-			myCalculator.operand1(Double.parseDouble(textfield.getText()));
+			myCalculator.operand(Double.parseDouble(textfield.getText()));
 			myCalculator.operator('+');
 			textfield.setText("");
 		}
 
 		if (e.getSource() == subButton) {
-			myCalculator.operand1(Double.parseDouble(textfield.getText()));
+			myCalculator.operand(Double.parseDouble(textfield.getText()));
 			myCalculator.operator('-');
 			textfield.setText("");
 		}
 
 		if (e.getSource() == mulButton) {
-			myCalculator.operand1(Double.parseDouble(textfield.getText()));
+			myCalculator.operand(Double.parseDouble(textfield.getText()));
 			myCalculator.operator('*');
 			textfield.setText("");
 		}
 
 		if (e.getSource() == divButton) {
-			myCalculator.operand1(Double.parseDouble(textfield.getText()));
+			myCalculator.operand(Double.parseDouble(textfield.getText()));
 			myCalculator.operator('/');
 			textfield.setText("");
 		}
 
 		if (e.getSource() == equButton) {					
-			myCalculator.operand2(Double.parseDouble(textfield.getText()));
+			myCalculator.operand(Double.parseDouble(textfield.getText()));
 			textfield.setText(String.valueOf(myCalculator.equals()));
 		}
 

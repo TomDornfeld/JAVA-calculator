@@ -2,54 +2,58 @@ package tom.dornfeld;
 
 public class Calculator {
 	
+	
 	double operand1;
 	double operand2;
 	char operator;
-	boolean OpschonB;
+
+	private boolean isOp1Set = false;
+	private boolean isOp2Set = false;
+	private boolean isOperatorSet = false;
 	
 	
-	public double add(double Num1, double Num2) {
+	protected double add(double Num1, double Num2) {
 		return Num1+ Num2;
 	}
 	
-	public double sub(double Num1, double Num2) {
+	protected double sub(double Num1, double Num2) {
 		return Num1- Num2;
 	}
 	
-	public double mul(double Num1, double Num2) {
+	protected double mul(double Num1, double Num2) {
 		return Num1* Num2;
 	}
 	
-	public double div(double Num1, double Num2) {
+	protected double div(double Num1, double Num2) {
 		return Num1/ Num2;
 	}
 	
-	public double neg(double Num1, double Num2) {
+	protected double neg(double Num1, double Num2) {
 		return -Num1;
 	}
 	
 	
-	public void operand1(double num) {	
-		this.operand1 = num;
-	}
-	
-	public void operand2(double num) {	  
-		this.operand2 = num;		
-	}
-	
+	public void operand(double num) {
+		if( !isOp1Set ) {
+			this.operand1 = num;
+			this.isOp1Set = true;
+		} 
+		else if ( !isOp2Set ) {
+			this.operand2 = num;
+			this.isOp2Set = true;
+		}
+	}	
 
 	public void operator(char op) {
-		OpschonB = true;
 		
-		if (OpschonB == true) {
-			operand1 = calculate();
-			operand1 += operand2;
-		}
-		
-		OpschonB = false;
-		
+		if ( isOperatorSet ) {
+			calculate();
+		}		
+
 		this.operator = op;
+		isOperatorSet = true;			
 	}
+	
 	
 	public double equals() {
 		
@@ -77,6 +81,14 @@ public class Calculator {
 		}
 
 		this.operand1 = result;
+		isOp1Set = true;
+
+		operand2 = 0.0;
+		isOp2Set = false;
+		
+		operator = 0;
+		isOperatorSet = false;
+
 		return result;
 	}
 
