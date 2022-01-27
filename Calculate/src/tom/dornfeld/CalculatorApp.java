@@ -154,6 +154,7 @@ public class CalculatorApp implements ActionListener {
 
 		if (e.getSource() == clrButton) {
 			textfield.setText("");
+			myCalculator.clear();
 		}
 		
 		if (e.getSource() == delButton) {

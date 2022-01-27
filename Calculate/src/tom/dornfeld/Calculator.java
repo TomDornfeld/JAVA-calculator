@@ -6,10 +6,12 @@ public class Calculator {
 	double operand1;
 	double operand2;
 	char operator;
-
+	
 	private boolean isOp1Set = false;
 	private boolean isOp2Set = false;
 	private boolean isOperatorSet = false;
+	private char operator1 = '+';
+	private char operator2 = '*';
 	
 	
 	protected double add(double Num1, double Num2) {
@@ -42,18 +44,35 @@ public class Calculator {
 			this.operand2 = num;
 			this.isOp2Set = true;
 		}
+		
+		
+		
 	}	
-
+   
 	public void operator(char op) {
 		
 		if ( isOperatorSet ) {
 			calculate();
 		}		
+		
+		if (isOperatorSet == true && isOp2Set == true && operator2 == '*') {
+			operator1 = '*';
+			operator2 = '+';
+		}
+		
 
 		this.operator = op;
 		isOperatorSet = true;			
 	}
 	
+	public void clear() {
+		isOp1Set = false;
+		isOp2Set = false;
+		isOperatorSet = false;
+		operand1 = 0;
+		operand2 = 0;
+		
+	}
 	
 	public double equals() {
 		

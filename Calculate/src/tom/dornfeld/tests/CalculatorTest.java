@@ -1,4 +1,4 @@
-package tom.dornfeld.tests;
+package tom.dornfeld.tests;              
 
 import static org.junit.Assert.assertEquals;
 
@@ -43,16 +43,26 @@ public class CalculatorTest {
 		
 		assertEquals(4.5, calculator.equals(), 0.00001);
 	}
+
+	@Test public void testpunktvorstrich() {
+		calculator.operand(2);
+		calculator.operator('+');
+		calculator.operand(1.5);
+		calculator.operator('*');
+		calculator.operand(3);
+
+		
+		assertEquals(6.5, calculator.equals(), 0.00001);
+	}
 	
-//	@Test public void testpunktvorstrich() {
-//		calculator.operand1(2);
-//		calculator.operator('+');
-//		calculator.operand2(1.5);
-//		calculator.operator('*');
-//		calculator.operand2(3);
-//
-//		
-//		assertEquals(6.5, calculator.equals(), 0.00001);
-//	}
+	@Test public void testclear() {
+		calculator.operand(2);
+		calculator.operator('+');
+		calculator.operand(3);
+		calculator.clear();
+		
+		
+		assertEquals(0, calculator.equals(), 0.00001);
+	}
 
 }
