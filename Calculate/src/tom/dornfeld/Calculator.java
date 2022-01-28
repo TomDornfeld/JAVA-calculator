@@ -10,8 +10,11 @@ public class Calculator {
 	private boolean isOp1Set = false;
 	private boolean isOp2Set = false;
 	private boolean isOperatorSet = false;
-	private char operator1 = '+';
-	private char operator2 = '*';
+	private boolean operatorLater = false;
+	private boolean operandLater = false;
+	private boolean isOperatorLSet = false; 
+	private boolean isOperandLSet = false;
+	
 	
 	
 	protected double add(double Num1, double Num2) {
@@ -44,9 +47,6 @@ public class Calculator {
 			this.operand2 = num;
 			this.isOp2Set = true;
 		}
-		
-		
-		
 	}	
    
 	public void operator(char op) {
@@ -55,15 +55,28 @@ public class Calculator {
 			calculate();
 		}		
 		
-		if (isOp2Set == true && operator1 == '+' || operator1 == '-' && operator2 == '*' || operator2 == '/') {
-			operator1 = '*';
-			operator2 = '+';
-			operand1 = operand2;
-			operand2 = operand1;
-			
+		if (isOp2Set == true && operator == '*') {
+			operatorLater = true; 
 		}
 		
-
+		if (operatorLater == true) {
+			//prüft ob der x-te Operator nun Punkt oder Strich ist
+			// falls Strich - dann wird operandLater auf true gesetzt.
+		}
+		
+		if (operandLater == true) {
+			// Operand wird nach vorne in die eigentliche Rechnung verschoben
+		}
+		
+		if (isOperatorLSet == true) {
+			// prüft ob ein operatorLater exestiert
+		}
+		
+		if (isOperandLSet == true) { 
+			// prüft, ob ein OperandLater exestiert
+		}
+		
+		
 		this.operator = op;
 		isOperatorSet = true;			
 	}
