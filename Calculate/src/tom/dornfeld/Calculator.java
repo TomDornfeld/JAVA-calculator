@@ -55,9 +55,12 @@ public class Calculator {
 			calculate();
 		}		
 		
-		if (isOperatorSet == true && isOp2Set == true && operator2 == '*') {
+		if (isOp2Set == true && operator1 == '+' || operator1 == '-' && operator2 == '*' || operator2 == '/') {
 			operator1 = '*';
 			operator2 = '+';
+			operand1 = operand2;
+			operand2 = operand1;
+			
 		}
 		
 
