@@ -11,7 +11,8 @@ public class Calculator {
 	private boolean isOp2Set = false;
 	private boolean isOperatorSet = false;
 	private char operatorLater = ' ';
-	private char operandLater = ' ';
+	private double operandLater;
+	private boolean isLater = false;
 	
 	
 	protected double add(double Num1, double Num2) {
@@ -50,11 +51,15 @@ public class Calculator {
 	public void operator(char op) {	
 		
 		if ( isOperatorSet ) {
-			if (op == '+' || op == '-' && op == '*' || op == '/') {
-				doLater();
-				calculate();
+			if ((operator == '+' || operator == '-') && (op == '*' || op == '/')) {
+				pushLater();
 			} else {
 				calculate();
+				
+				if (isLater && (op == '+' || op == '-') ) {
+					popLater();
+					calculate();
+				}
 			}
 		}
 		
@@ -74,17 +79,38 @@ public class Calculator {
 		
 	}
 	
-	public void doLater() {
-		if (operatorLater == '+' || operatorLater == '-') {
-			operand1 = operandLater;
+	public void pushLater() {
+		if (operator == '+' || operator == '-') {
+			operandLater = operand1;
+			operatorLater = operator;
+			isLater = true;
+			isOp2Set = false;
+			operand1 = operand2;
+			operand2 = 0;
 		}
 	}
 	
+	public void popLater() {
+		if (isLater) {
+			operand2 = operand1;
+			isOp2Set = true;
+			operand1 = operandLater;
+			operator = operatorLater;
+			isLater = false;
+		}
+	}
 	
+
 	
 	public double equals() {
 		
-		return calculate();
+		double retvalue = calculate();
+		
+		if (isLater) {
+			popLater();
+			retvalue = calculate();
+		}
+		return retvalue;
 	}
 
 	
