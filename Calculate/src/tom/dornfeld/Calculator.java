@@ -10,8 +10,8 @@ public class Calculator {
 	private boolean isOp1Set = false;
 	private boolean isOp2Set = false;
 	private boolean isOperatorSet = false;
-	private char operator1 = '+';
-	private char operator2 = '*';
+	private char operatorLater = ' ';
+	private char operandLater = ' ';
 	
 	
 	protected double add(double Num1, double Num2) {
@@ -44,26 +44,22 @@ public class Calculator {
 			this.operand2 = num;
 			this.isOp2Set = true;
 		}
-		
-		
-		
 	}	
-   
-	public void operator(char op) {
+ 
+	
+	public void operator(char op) {	
 		
 		if ( isOperatorSet ) {
-			calculate();
-		}		
-		
-		if (isOp2Set == true && operator1 == '+' || operator1 == '-' && operator2 == '*' || operator2 == '/') {
-			operator1 = '*';
-			operator2 = '+';
-			operand1 = operand2;
-			operand2 = operand1;
-			
+			if (op == '+' || op == '-' && op == '*' || op == '/') {
+				doLater();
+				calculate();
+			} else {
+				calculate();
+			}
 		}
 		
-
+	
+		
 		this.operator = op;
 		isOperatorSet = true;			
 	}
@@ -75,7 +71,16 @@ public class Calculator {
 		operand1 = 0;
 		operand2 = 0;
 		
+		
 	}
+	
+	public void doLater() {
+		if (operatorLater == '+' || operatorLater == '-') {
+			operand1 = operandLater;
+		}
+	}
+	
+	
 	
 	public double equals() {
 		
