@@ -24,9 +24,6 @@ public class CalculatorApp implements ActionListener {
 
 	Font myFont = new Font("monospaced", Font.BOLD, 30);
 
-	double num1 = 0, num2 = 0, result = 0;
-	char operator;
-
 	CalculatorApp() {
 
 		myCalculator = new Calculator();
@@ -127,52 +124,39 @@ public class CalculatorApp implements ActionListener {
 		}
 
 		if (e.getSource() == addButton) {
-			num1 = Double.parseDouble(textfield.getText());
-			operator = '+';
+			myCalculator.operand(Double.parseDouble(textfield.getText()));
+			myCalculator.operator('+');
 			textfield.setText("");
 		}
 
 		if (e.getSource() == subButton) {
-			num1 = Double.parseDouble(textfield.getText());
-			operator = '-';
+			myCalculator.operand(Double.parseDouble(textfield.getText()));
+			myCalculator.operator('-');
 			textfield.setText("");
 		}
 
 		if (e.getSource() == mulButton) {
-			num1 = Double.parseDouble(textfield.getText());
-			operator = '*';
+			myCalculator.operand(Double.parseDouble(textfield.getText()));
+			myCalculator.operator('*');
 			textfield.setText("");
 		}
 
 		if (e.getSource() == divButton) {
-			num1 = Double.parseDouble(textfield.getText());
-			operator = '/';
+			myCalculator.operand(Double.parseDouble(textfield.getText()));
+			myCalculator.operator('/');
 			textfield.setText("");
 		}
 
-		if (e.getSource() == equButton) {
-			num2 = Double.parseDouble(textfield.getText());
-								
-			switch (operator) {
-			case '+':
-				result = myCalculator.add(num1, num2);
-				break;
-			case '-':
-				result = num1 - num2;			
-				break;
-			case '*':
-				result = num1 * num2;
-				break;
-			case '/':
-				result = num1 / num2;
-				break;
-			}
-			textfield.setText(String.valueOf(result));
-		num1 = result;
+		if (e.getSource() == equButton) {					
+			myCalculator.operand(Double.parseDouble(textfield.getText()));
+			textfield.setText(String.valueOf(myCalculator.equals()));
 		}
+
 		if (e.getSource() == clrButton) {
 			textfield.setText("");
+			myCalculator.clear();
 		}
+		
 		if (e.getSource() == delButton) {
 			String string = textfield.getText();
 			textfield.setText("");
